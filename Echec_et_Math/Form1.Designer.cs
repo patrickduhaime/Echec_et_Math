@@ -132,7 +132,7 @@
             this.Controls.Add(this.labelControl);
             this.Controls.Add(this.panelControl);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Echec et Math";
             this.panelControl.ResumeLayout(false);
             this.panelControl.PerformLayout();
             this.ResumeLayout(false);

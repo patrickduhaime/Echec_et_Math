@@ -19,7 +19,6 @@ namespace Echec_et_Math
 
         private void buttonChessBoardGen_Click(object sender, EventArgs e)
         {
-
             if (String.IsNullOrEmpty(txtChessBoardSize.Text))
             {
                 MessageBox.Show("Vous devez entrer une dimension avant de generer un echiquier", "Message d'avertissement !",
@@ -29,23 +28,41 @@ namespace Echec_et_Math
             else
             {
                 int M_size = Int32.Parse(txtChessBoardSize.Text);
+                JeuEchec jeu = new JeuEchec(M_size);
                 int step = 400 / M_size;
 
-                using (Graphics g = this.CreateGraphics())
+                if (!jeu.chessBoardSolver(0))
                 {
-                    g.Clear(SystemColors.Control); //Clear the draw area
-
-                    using (SolidBrush blackBrush = new SolidBrush(Color.Black))
-                    using (SolidBrush whiteBrush = new SolidBrush(Color.White))
+                    using (Graphics g = this.CreateGraphics())
                     {
-                        for (int i = 0; i < M_size; i++)
+                        g.Clear(SystemColors.Control); //Clear the draw area
+                    }
+                    txtChessBoardSize.Text = "";
+                    MessageBox.Show("Aucune solution n'a ete trouve pour cet echiquier", "Message d'avertissement !",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    using (Graphics g = this.CreateGraphics())
+                    {
+                        g.Clear(SystemColors.Control); //Clear the draw area
+
+                        using (SolidBrush blackBrush = new SolidBrush(Color.Black))
+                        using (SolidBrush redBrush = new SolidBrush(Color.Red))
+                        using (SolidBrush whiteBrush = new SolidBrush(Color.White))
                         {
-                            for (int j = 0; j < M_size; j++)
+                            for (int i = 0; i < M_size; i++)
                             {
-                                if ((j % 2 == 0 && i % 2 == 0) || (j % 2 != 0 && i % 2 != 0))
-                                    g.FillRectangle(blackBrush, i * step, j * step, step, step);
-                                else if ((j % 2 == 0 && i % 2 != 0) || (j % 2 != 0 && i % 2 == 0))
-                                    g.FillRectangle(whiteBrush, i * step, j * step, step, step);
+                                for (int j = 0; j < M_size; j++)
+                                {
+                                    if ((j % 2 == 0 && i % 2 == 0) || (j % 2 != 0 && i % 2 != 0))
+                                        g.FillRectangle(blackBrush, i * step, j * step, step, step);
+                                    else if ((j % 2 == 0 && i % 2 != 0) || (j % 2 != 0 && i % 2 == 0))
+                                        g.FillRectangle(whiteBrush, i * step, j * step, step, step);
+                                    if (jeu.chessBoard[i, j] == 1)
+                                        g.FillRectangle(redBrush, i * step, j * step, step, step);
+                                }
                             }
                         }
                     }
@@ -54,3 +71,4 @@ namespace Echec_et_Math
         }
     }
 }
+
