@@ -1,0 +1,10 @@
+c:\users\patrick\source\repos\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.csprojResolveAssemblyReference.cache
+c:\users\patrick\source\repos\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.Form1.resources
+c:\users\patrick\source\repos\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.Properties.Resources.resources
+c:\users\patrick\source\repos\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.csproj.GenerateResource.Cache
+c:\users\patrick\source\repos\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.csproj.CoreCompileInputs.cache
+c:\users\patrick\source\repos\Echec_et_Math\Echec_et_Math\bin\Debug\Echec_et_Math.exe.config
+c:\users\patrick\source\repos\Echec_et_Math\Echec_et_Math\bin\Debug\Echec_et_Math.exe
+c:\users\patrick\source\repos\Echec_et_Math\Echec_et_Math\bin\Debug\Echec_et_Math.pdb
+c:\users\patrick\source\repos\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.exe
+c:\users\patrick\source\repos\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.pdb
