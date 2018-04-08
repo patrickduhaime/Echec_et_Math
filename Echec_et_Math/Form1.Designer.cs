@@ -34,7 +34,9 @@
             this.labelChessBoardSize = new System.Windows.Forms.Label();
             this.labelControl = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labelCounters = new System.Windows.Forms.Label();
+            this.labelCounter = new System.Windows.Forms.Label();
+            this.comboBoxSolutions = new System.Windows.Forms.ComboBox();
+            this.labelSolution = new System.Windows.Forms.Label();
             this.panelControl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,24 +91,43 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Location = new System.Drawing.Point(420, 173);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(188, 215);
+            this.panel1.Size = new System.Drawing.Size(188, 156);
             this.panel1.TabIndex = 3;
             // 
-            // labelCounters
+            // labelCounter
             // 
-            this.labelCounters.AutoSize = true;
-            this.labelCounters.Location = new System.Drawing.Point(417, 157);
-            this.labelCounters.Name = "labelCounters";
-            this.labelCounters.Size = new System.Drawing.Size(49, 13);
-            this.labelCounters.TabIndex = 4;
-            this.labelCounters.Text = "Counters";
+            this.labelCounter.AutoSize = true;
+            this.labelCounter.Location = new System.Drawing.Point(417, 157);
+            this.labelCounter.Name = "labelCounter";
+            this.labelCounter.Size = new System.Drawing.Size(44, 13);
+            this.labelCounter.TabIndex = 4;
+            this.labelCounter.Text = "Counter";
+            // 
+            // comboBoxSolutions
+            // 
+            this.comboBoxSolutions.FormattingEnabled = true;
+            this.comboBoxSolutions.Location = new System.Drawing.Point(420, 359);
+            this.comboBoxSolutions.Name = "comboBoxSolutions";
+            this.comboBoxSolutions.Size = new System.Drawing.Size(188, 21);
+            this.comboBoxSolutions.TabIndex = 5;
+            // 
+            // labelSolution
+            // 
+            this.labelSolution.AutoSize = true;
+            this.labelSolution.Location = new System.Drawing.Point(417, 343);
+            this.labelSolution.Name = "labelSolution";
+            this.labelSolution.Size = new System.Drawing.Size(45, 13);
+            this.labelSolution.TabIndex = 6;
+            this.labelSolution.Text = "Solution";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 400);
-            this.Controls.Add(this.labelCounters);
+            this.Controls.Add(this.labelSolution);
+            this.Controls.Add(this.comboBoxSolutions);
+            this.Controls.Add(this.labelCounter);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelControl);
             this.Controls.Add(this.panelControl);
@@ -127,7 +148,9 @@
         private System.Windows.Forms.Label labelChessBoardSize;
         private System.Windows.Forms.Label labelControl;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label labelCounters;
+        private System.Windows.Forms.Label labelCounter;
+        private System.Windows.Forms.ComboBox comboBoxSolutions;
+        private System.Windows.Forms.Label labelSolution;
     }
 }
 
