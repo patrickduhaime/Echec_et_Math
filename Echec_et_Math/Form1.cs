@@ -89,14 +89,7 @@ namespace Echec_et_Math
 
         public void addSolution2comboBoxSolutions(int[] solution)
         {
-            string Affichage = "";
-
-            foreach (int element in solution)
-            {
-                Affichage = Affichage + element + " ";
-            }
-            Affichage.TrimEnd(' ');
-            comboBoxSolutions.Items.Add(Affichage);
+            comboBoxSolutions.Items.Add(new Item("solution " + nbSolutions,  solution));
             if (premierAffichage == 0)
             {
                 comboBoxSolutions.SelectedIndex = 0;
