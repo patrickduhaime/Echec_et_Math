@@ -18,7 +18,6 @@ namespace Echec_et_Math
 
         public override string ToString()
         {
-            // Generates the text shown in the combo box
             return Nom;
         }
     }
