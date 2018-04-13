@@ -16,6 +16,7 @@ namespace Echec_et_Math
         int M_size, step;
         JeuEchec jeu;
         public static Form1 UI;
+        Item lastItem = null;
 
         public Form1()
         {
@@ -74,14 +75,55 @@ namespace Echec_et_Math
             }
         }
 
+
+        public Boolean IsNull(object T)
+        {
+            return T == null;
+        }
+
         private void comboBoxSolutions_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Item itm = (Item)comboBoxSolutions.SelectedItem;
+            if (!IsNull(lastItem))
+            {
+                using (Graphics g = this.CreateGraphics())
+                {
+                    using (SolidBrush whiteBrush = new SolidBrush(Color.White))
+                    using (SolidBrush blackBrush = new SolidBrush(Color.Black))
 
+                        for (int i = 0; i < lastItem.Solution.Length; i++)
+                        {
+                            int j = lastItem.Solution[i];
+                            if (i % 2 == 0)
+                            {
+                                if(j % 2 == 0)
+                                {
+                                    g.FillRectangle(blackBrush, i * step, j * step, step, step);
+                                }
+                                else
+                                {
+                                    g.FillRectangle(whiteBrush, i * step, j * step, step, step);
+                                }
+                            }
+                            else
+                            {
+                                if (j % 2 == 0)
+                                {
+                                    g.FillRectangle(whiteBrush, i * step, j * step, step, step);
+                                }
+                                else
+                                {
+                                    g.FillRectangle(blackBrush, i * step, j * step, step, step);
+                                }
+                            }
+                            g.FillRectangle(blackBrush, i * step, j * step, step, step);
+                        }
+                }
+            }
+
+            Item itm = (Item)comboBoxSolutions.SelectedItem;
+            
             using (Graphics g = this.CreateGraphics())
             {
-                g.Clear(SystemColors.Control); //Clear the draw area
-
                 using (SolidBrush redBrush = new SolidBrush(Color.Red))
 
                 for (int i = 0; i < itm.Solution.Length; i++)
@@ -90,6 +132,8 @@ namespace Echec_et_Math
                     g.FillRectangle(redBrush, i * step, j * step, step, step);
                 }
             }
+
+            lastItem = itm;
         }
 
         public void addSolution2comboBoxSolutions(int[] solution)
