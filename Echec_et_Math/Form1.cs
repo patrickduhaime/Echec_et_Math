@@ -12,7 +12,7 @@ namespace Echec_et_Math
 {
     public partial class Form1 : Form
     {
-        private int nbSolutions = 1, premierAffichage = 0;
+        private int nbSolutions = 1;
         int M_size, step;
         JeuEchec jeu;
         public static Form1 UI;
@@ -85,6 +85,13 @@ namespace Echec_et_Math
 
         private void comboBoxSolutions_SelectedIndexChanged(object sender, EventArgs e)
         {
+            afficherSolution();
+        }
+
+        private void afficherSolution()
+        {
+            Item itm = (Item)comboBoxSolutions.SelectedItem;
+
             if (!IsNull(lastItem))
             {
                 using (Graphics g = this.CreateGraphics())
@@ -92,63 +99,54 @@ namespace Echec_et_Math
                     using (SolidBrush whiteBrush = new SolidBrush(Color.White))
                     using (SolidBrush blackBrush = new SolidBrush(Color.Black))
 
-                    for (int i = 0; i < lastItem.Solution.Length; i++)
-                    {
-                        int j = lastItem.Solution[i];
-                        if (i % 2 == 0)
+                        for (int i = 0; i < lastItem.Solution.Length; i++)
                         {
-                            if(j % 2 == 0)
+                            int j = lastItem.Solution[i];
+                            if (i % 2 == 0 && i < itm.Solution.Length)
                             {
-                                g.FillRectangle(blackBrush, i * step, j * step, step, step);
+                                if (j % 2 == 0 && j < itm.Solution.Length)
+                                {
+                                    g.FillRectangle(blackBrush, i * step, j * step, step, step);
+                                }
+                                else if (j % 2 == 1 && j < itm.Solution.Length)
+                                {
+                                    g.FillRectangle(whiteBrush, i * step, j * step, step, step);
+                                }
                             }
                             else
                             {
-                                g.FillRectangle(whiteBrush, i * step, j * step, step, step);
+                                if (j % 2 == 0 && j < itm.Solution.Length)
+                                {
+                                    g.FillRectangle(whiteBrush, i * step, j * step, step, step);
+                                }
+                                else if (j % 2 == 1 && j < itm.Solution.Length)
+                                {
+                                    g.FillRectangle(blackBrush, i * step, j * step, step, step);
+                                }
                             }
                         }
-                        else
-                        {
-                            if (j % 2 == 0)
-                            {
-                                g.FillRectangle(whiteBrush, i * step, j * step, step, step);
-                            }
-                            else
-                            {
-                                g.FillRectangle(blackBrush, i * step, j * step, step, step);
-                            }
-                        }
-                    }
                 }
             }
 
-
-            Item itm = (Item)comboBoxSolutions.SelectedItem;
-            
             using (Graphics g = this.CreateGraphics())
             {
                 using (SolidBrush redBrush = new SolidBrush(Color.Red))
 
-                for (int i = 0; i < itm.Solution.Length; i++)
-                {
-                    int j = itm.Solution[i];
-                    g.FillRectangle(redBrush, i * step, j * step, step, step);
-                }
+                    for (int i = 0; i < itm.Solution.Length; i++)
+                    {
+                        int j = itm.Solution[i];
+                        g.FillRectangle(redBrush, i * step, j * step, step, step);
+                    }
             }
 
             lastItem = itm;
         }
-
+    
 
         public void addSolution2comboBoxSolutions(int[] solution)
         {
             comboBoxSolutions.Items.Add(new Item("solution " + nbSolutions,  solution));
             nbSolutions++;
-            if (premierAffichage == 0)
-            {
-                comboBoxSolutions.SelectedIndex = 0;
-                comboBoxSolutions_SelectedIndexChanged(comboBoxSolutions, new EventArgs());
-                premierAffichage++;
-            }
         }
     }
 }
