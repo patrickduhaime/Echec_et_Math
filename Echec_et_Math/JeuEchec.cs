@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Echec_et_Math
 {
@@ -10,12 +6,15 @@ namespace Echec_et_Math
     {
         public int[,] chessBoard;
         private int chessBoardSize;
+        public int[] solution;
 
         public JeuEchec(int chessBoardSize)
         {
             this.chessBoardSize = chessBoardSize;
             chessBoard = new int[chessBoardSize,chessBoardSize];
+            this.solution = new int[chessBoardSize];
         }
+
 
         public Boolean toPlaceOrNotToPlace(int[,] board, int row, int col)
         {
@@ -38,14 +37,30 @@ namespace Echec_et_Math
 
         public Boolean chessBoardSolver(int col)
         {
-         
-            if (col >= chessBoardSize) return true;
+            if (col >= chessBoardSize)
+            {
+                for (int i = 0; i < chessBoardSize; i++)
+                {
+                    for (int j = 0; j < chessBoardSize; j++)
+                    {
+                        if(this.chessBoard[i,j]==1)
+                        {
+                            this.solution[i] = j;
+                        }
+                    }
+                }
+                Form1.UI.addSolution2comboBoxSolutions(solution);
+                return true;
+            }
             for (int i = 0; i < chessBoardSize; i++)
             {
                 if (toPlaceOrNotToPlace(this.chessBoard, i, col))
                 {
                     this.chessBoard[i, col] = 1;
-                    if (chessBoardSolver(col + 1)) return true;
+                    if (chessBoardSolver(col + 1))
+                    {
+                        return true;
+                    }
                     this.chessBoard[i, col] = 0;
                 }
             }

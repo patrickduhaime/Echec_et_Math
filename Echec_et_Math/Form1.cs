@@ -12,9 +12,15 @@ namespace Echec_et_Math
 {
     public partial class Form1 : Form
     {
+        private int nbSolutions = 0, premierAffichage = 0;
+        int M_size, step;
+        JeuEchec jeu;
+        public static Form1 UI;
+
         public Form1()
         {
             InitializeComponent();
+            UI = this;
         }
 
         private void buttonChessBoardGen_Click(object sender, EventArgs e)
@@ -27,9 +33,9 @@ namespace Echec_et_Math
             }
             else
             {
-                int M_size = Int32.Parse(txtChessBoardSize.Text);
-                JeuEchec jeu = new JeuEchec(M_size);
-                int step = 400 / M_size;
+                M_size = Int32.Parse(txtChessBoardSize.Text);
+                jeu = new JeuEchec(M_size);
+                step = 400 / M_size;
 
                 if (!jeu.chessBoardSolver(0))
                 {
@@ -49,7 +55,7 @@ namespace Echec_et_Math
                         g.Clear(SystemColors.Control); //Clear the draw area
 
                         using (SolidBrush blackBrush = new SolidBrush(Color.Black))
-                        using (SolidBrush redBrush = new SolidBrush(Color.Red))
+                       
                         using (SolidBrush whiteBrush = new SolidBrush(Color.White))
                         {
                             for (int i = 0; i < M_size; i++)
@@ -60,13 +66,41 @@ namespace Echec_et_Math
                                         g.FillRectangle(blackBrush, i * step, j * step, step, step);
                                     else if ((j % 2 == 0 && i % 2 != 0) || (j % 2 != 0 && i % 2 == 0))
                                         g.FillRectangle(whiteBrush, i * step, j * step, step, step);
-                                    if (jeu.chessBoard[i, j] == 1)
-                                        g.FillRectangle(redBrush, i * step, j * step, step, step);
+                                    
                                 }
                             }
                         }
                     }
                 }
+            }
+        }
+
+        private void comboBoxSolutions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            using (Graphics g = this.CreateGraphics())
+            {
+                using (SolidBrush redBrush = new SolidBrush(Color.Red)) ;
+
+                   /* for
+                    if (jeu.chessBoard[i, j] == 1)
+                        g.FillRectangle(redBrush, i * step, j * step, step, step); */
+            }
+        }
+
+        public void addSolution2comboBoxSolutions(int[] solution)
+        {
+            string Affichage = "";
+
+            foreach (int element in solution)
+            {
+                Affichage = Affichage + element + " ";
+            }
+            Affichage.TrimEnd(' ');
+            comboBoxSolutions.Items.Add(Affichage);
+            if (premierAffichage == 0)
+            {
+                comboBoxSolutions.SelectedIndex = 0;
+                premierAffichage++;
             }
         }
     }

@@ -110,6 +110,7 @@
             this.comboBoxSolutions.Name = "comboBoxSolutions";
             this.comboBoxSolutions.Size = new System.Drawing.Size(188, 21);
             this.comboBoxSolutions.TabIndex = 5;
+            this.comboBoxSolutions.SelectedIndexChanged += new System.EventHandler(this.comboBoxSolutions_SelectedIndexChanged);
             // 
             // labelSolution
             // 
