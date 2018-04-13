@@ -12,7 +12,7 @@ namespace Echec_et_Math
 {
     public partial class Form1 : Form
     {
-        private int nbSolutions = 0, premierAffichage = 0;
+        private int nbSolutions = 1, premierAffichage = 0;
         int M_size, step;
         JeuEchec jeu;
         public static Form1 UI;
@@ -55,7 +55,6 @@ namespace Echec_et_Math
                         g.Clear(SystemColors.Control); //Clear the draw area
 
                         using (SolidBrush blackBrush = new SolidBrush(Color.Black))
-                       
                         using (SolidBrush whiteBrush = new SolidBrush(Color.White))
                         {
                             for (int i = 0; i < M_size; i++)
@@ -77,19 +76,26 @@ namespace Echec_et_Math
 
         private void comboBoxSolutions_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Item itm = (Item)comboBoxSolutions.SelectedItem;
+
             using (Graphics g = this.CreateGraphics())
             {
-                using (SolidBrush redBrush = new SolidBrush(Color.Red)) ;
+                g.Clear(SystemColors.Control); //Clear the draw area
 
-                   /* for
-                    if (jeu.chessBoard[i, j] == 1)
-                        g.FillRectangle(redBrush, i * step, j * step, step, step); */
+                using (SolidBrush redBrush = new SolidBrush(Color.Red))
+
+                for (int i = 0; i < itm.Solution.Length; i++)
+                {
+                    int j = itm.Solution[i];
+                    g.FillRectangle(redBrush, i * step, j * step, step, step);
+                }
             }
         }
 
         public void addSolution2comboBoxSolutions(int[] solution)
         {
             comboBoxSolutions.Items.Add(new Item("solution " + nbSolutions,  solution));
+            nbSolutions++;
             if (premierAffichage == 0)
             {
                 comboBoxSolutions.SelectedIndex = 0;
