@@ -34,6 +34,8 @@ namespace Echec_et_Math
             }
             else
             {
+                comboBoxSolutions.Items.Clear();
+                nbSolutions = 1;
                 M_size = Int32.Parse(txtChessBoardSize.Text);
                 jeu = new JeuEchec(M_size);
                 step = 400 / M_size;
@@ -90,34 +92,35 @@ namespace Echec_et_Math
                     using (SolidBrush whiteBrush = new SolidBrush(Color.White))
                     using (SolidBrush blackBrush = new SolidBrush(Color.Black))
 
-                        for (int i = 0; i < lastItem.Solution.Length; i++)
+                    for (int i = 0; i < lastItem.Solution.Length; i++)
+                    {
+                        int j = lastItem.Solution[i];
+                        if (i % 2 == 0)
                         {
-                            int j = lastItem.Solution[i];
-                            if (i % 2 == 0)
+                            if(j % 2 == 0)
                             {
-                                if(j % 2 == 0)
-                                {
-                                    g.FillRectangle(blackBrush, i * step, j * step, step, step);
-                                }
-                                else
-                                {
-                                    g.FillRectangle(whiteBrush, i * step, j * step, step, step);
-                                }
+                                g.FillRectangle(blackBrush, i * step, j * step, step, step);
                             }
                             else
                             {
-                                if (j % 2 == 0)
-                                {
-                                    g.FillRectangle(whiteBrush, i * step, j * step, step, step);
-                                }
-                                else
-                                {
-                                    g.FillRectangle(blackBrush, i * step, j * step, step, step);
-                                }
+                                g.FillRectangle(whiteBrush, i * step, j * step, step, step);
                             }
                         }
+                        else
+                        {
+                            if (j % 2 == 0)
+                            {
+                                g.FillRectangle(whiteBrush, i * step, j * step, step, step);
+                            }
+                            else
+                            {
+                                g.FillRectangle(blackBrush, i * step, j * step, step, step);
+                            }
+                        }
+                    }
                 }
             }
+
 
             Item itm = (Item)comboBoxSolutions.SelectedItem;
             
@@ -135,6 +138,7 @@ namespace Echec_et_Math
             lastItem = itm;
         }
 
+
         public void addSolution2comboBoxSolutions(int[] solution)
         {
             comboBoxSolutions.Items.Add(new Item("solution " + nbSolutions,  solution));
@@ -142,6 +146,7 @@ namespace Echec_et_Math
             if (premierAffichage == 0)
             {
                 comboBoxSolutions.SelectedIndex = 0;
+                comboBoxSolutions_SelectedIndexChanged(comboBoxSolutions, new EventArgs());
                 premierAffichage++;
             }
         }
