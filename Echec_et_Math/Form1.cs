@@ -115,7 +115,6 @@ namespace Echec_et_Math
                                     g.FillRectangle(blackBrush, i * step, j * step, step, step);
                                 }
                             }
-                            g.FillRectangle(blackBrush, i * step, j * step, step, step);
                         }
                 }
             }
