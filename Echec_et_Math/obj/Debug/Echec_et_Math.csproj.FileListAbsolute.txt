@@ -8,3 +8,13 @@ c:\users\patrick\source\repos\Echec_et_Math\Echec_et_Math\bin\Debug\Echec_et_Mat
 c:\users\patrick\source\repos\Echec_et_Math\Echec_et_Math\bin\Debug\Echec_et_Math.pdb
 c:\users\patrick\source\repos\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.exe
 c:\users\patrick\source\repos\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.pdb
+C:\Users\card\Documents\GitHub\Echec_et_Math\Echec_et_Math\bin\Debug\Echec_et_Math.exe.config
+C:\Users\card\Documents\GitHub\Echec_et_Math\Echec_et_Math\bin\Debug\Echec_et_Math.exe
+C:\Users\card\Documents\GitHub\Echec_et_Math\Echec_et_Math\bin\Debug\Echec_et_Math.pdb
+C:\Users\card\Documents\GitHub\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.csprojResolveAssemblyReference.cache
+C:\Users\card\Documents\GitHub\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.Form1.resources
+C:\Users\card\Documents\GitHub\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.Properties.Resources.resources
+C:\Users\card\Documents\GitHub\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.csproj.GenerateResource.cache
+C:\Users\card\Documents\GitHub\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.csproj.CoreCompileInputs.cache
+C:\Users\card\Documents\GitHub\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.exe
+C:\Users\card\Documents\GitHub\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.pdb
