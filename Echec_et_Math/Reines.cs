@@ -9,10 +9,10 @@ namespace Echec_et_Math
     class Reines
     {
         private int[] echiquier, diagDroiteGauche, diagGaucheDroite;
-        private int largeur, maxsol, trouves;
+        private int largeur, maxsol;
         private File file;//pour ranger le solutions
 
-        private int nbIttr, nbIttrTotal;//compteurs
+        private int nbIttr, nbIttrTotal, trouves;//compteurs
 
         public Reines()
         {
