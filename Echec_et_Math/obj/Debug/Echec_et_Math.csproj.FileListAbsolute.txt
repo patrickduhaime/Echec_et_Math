@@ -8,3 +8,12 @@ c:\users\patrick\source\repos\Echec_et_Math\Echec_et_Math\bin\Debug\Echec_et_Mat
 c:\users\patrick\source\repos\Echec_et_Math\Echec_et_Math\bin\Debug\Echec_et_Math.pdb
 c:\users\patrick\source\repos\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.exe
 c:\users\patrick\source\repos\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.pdb
+S:\cours\inf1008\Echec_et_Math\Echec_et_Math\bin\Debug\Echec_et_Math.exe.config
+S:\cours\inf1008\Echec_et_Math\Echec_et_Math\bin\Debug\Echec_et_Math.exe
+S:\cours\inf1008\Echec_et_Math\Echec_et_Math\bin\Debug\Echec_et_Math.pdb
+S:\cours\inf1008\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.Form1.resources
+S:\cours\inf1008\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.Properties.Resources.resources
+S:\cours\inf1008\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.csproj.GenerateResource.Cache
+S:\cours\inf1008\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.csproj.CoreCompileInputs.cache
+S:\cours\inf1008\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.exe
+S:\cours\inf1008\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.pdb
