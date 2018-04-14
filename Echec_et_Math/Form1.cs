@@ -43,10 +43,10 @@ namespace Echec_et_Math
                                               //à partir de 20/21 pour 10000 solutions
                                               //peut varier selon la machine
                 else
-                    jeu = new Reines(M_size, 10000);//max 10000 solutions 
-                                                    //(à partir de 12 on arrête avant la fin..) 
+                    jeu = new Reines(M_size, 34465);//max 34465 solutions (le combobox se rend pas plus loin :)
+                                                    //(à partir de 13 on arrête avant la fin..) 
                 step = 400 / M_size; //taille des cases
-                
+
                 //si il n'y a pas de solution
                 if (!jeu.branche(0) && !jeu.hasSolutions())
                 {
@@ -77,7 +77,6 @@ namespace Echec_et_Math
                                         g.FillRectangle(blackBrush, i * step, j * step, step, step);
                                     else if ((j % 2 == 0 && i % 2 != 0) || (j % 2 != 0 && i % 2 == 0))
                                         g.FillRectangle(whiteBrush, i * step, j * step, step, step);
-
                                 }
                             }
                         }
@@ -100,6 +99,9 @@ namespace Echec_et_Math
         private void afficherSolution()
         {
             Item itm = (Item)comboBoxSolutions.SelectedItem;
+            labelNTuplesCourant.Text = itm.getntuples().ToString();
+            labelNTuples.Text = jeu.getIttrTotal().ToString();
+            labelSolTrouvees.Text = jeu.getNbSolutions().ToString();
 
             if (!IsNull(lastItem))
             {
@@ -108,27 +110,27 @@ namespace Echec_et_Math
                     using (SolidBrush whiteBrush = new SolidBrush(Color.White))
                     using (SolidBrush blackBrush = new SolidBrush(Color.Black))
 
-                        for (int i = 0; i < lastItem.Solution.Length; i++)
+                        for (int i = 0; i < lastItem.getLength(); i++)
                         {
-                            int j = lastItem.Solution[i];
-                            if (i % 2 == 0 && i < itm.Solution.Length)
+                            int j = lastItem.getItem(i);
+                            if (i % 2 == 0 && i < itm.getLength())
                             {
-                                if (j % 2 == 0 && j < itm.Solution.Length)
+                                if (j % 2 == 0 && j < itm.getSolution().Length)
                                 {
                                     g.FillRectangle(blackBrush, i * step, j * step, step, step);
                                 }
-                                else if (j % 2 == 1 && j < itm.Solution.Length)
+                                else if (j % 2 == 1 && j < itm.getLength())
                                 {
                                     g.FillRectangle(whiteBrush, i * step, j * step, step, step);
                                 }
                             }
                             else
                             {
-                                if (j % 2 == 0 && j < itm.Solution.Length)
+                                if (j % 2 == 0 && j < itm.getLength())
                                 {
                                     g.FillRectangle(whiteBrush, i * step, j * step, step, step);
                                 }
-                                else if (j % 2 == 1 && j < itm.Solution.Length)
+                                else if (j % 2 == 1 && j < itm.getLength())
                                 {
                                     g.FillRectangle(blackBrush, i * step, j * step, step, step);
                                 }
@@ -141,9 +143,9 @@ namespace Echec_et_Math
             {
                 using (SolidBrush redBrush = new SolidBrush(Color.Red))
 
-                    for (int i = 0; i < itm.Solution.Length; i++)
+                    for (int i = 0; i < itm.getLength(); i++)
                     {
-                        int j = itm.Solution[i];
+                        int j = itm.getItem(i);
                         g.FillRectangle(redBrush, i * step, j * step, step, step);
                     }
             }

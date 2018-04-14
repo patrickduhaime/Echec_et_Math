@@ -12,7 +12,7 @@ namespace Echec_et_Math
         private int largeur, maxsol, trouves;
         private File file;//pour ranger le solutions
 
-        private int nbIttr, nbAff, nbComp;//compteurs
+        private int nbIttr, nbIttrTotal;//compteurs
 
         public Reines()
         {
@@ -52,21 +52,16 @@ namespace Echec_et_Math
             return nbIttr;
         }
 
-        public int getAff()
+        public int getIttrTotal()
         {
-            return nbAff;
-        }
-
-        public int getComp()
-        {
-            return nbComp;
+            return nbIttrTotal;
         }
 
         public void reset()
         {
             trouves = 0;
 
-            nbIttr = nbAff = nbComp = 0;
+            nbIttr = nbIttrTotal = 0;
 
             echiquier = new int[largeur];
             for (int i = 0; i < largeur; i++)
@@ -86,12 +81,19 @@ namespace Echec_et_Math
             return !file.estVide();
         }
 
+        public int getNbSolutions()
+        {
+            return trouves;
+        }
+
         public bool branche(int k)
         {
             if (k == largeur)
             {
                 trouves++;
-                file.enfiler(new Item("" + trouves, echiquier));
+                file.enfiler(new Item("" + trouves, nbIttr, echiquier));
+                nbIttrTotal += nbIttr;
+                nbIttr = 0;
                 return true;//on a trouvé une solution
             }
             for (int j = 0; j < largeur; j++)
@@ -104,21 +106,16 @@ namespace Echec_et_Math
                     diagDroiteGauche[k + j] = 1;
                     diagGaucheDroite[k - j + largeur - 1] = 1;
 
-                    nbAff = nbAff + 3;
                     //on augmente la profondeur
                     //si on a trouvé une solution et on en a suffisamment
                     if (branche(k + 1) && trouves >= maxsol)
-                    {
-                        nbComp++;
                         return true;
-                    }
+
                     //sinon
                     //on libère la case pour la prochaine itération
                     echiquier[k] = -1;
                     diagDroiteGauche[k + j] = 0;
                     diagGaucheDroite[k - j + largeur - 1] = 0;
-
-                    nbAff = nbAff + 3;
                 }
             }
             //si on a pas trouvé de solution on remonte d'un degré
@@ -128,12 +125,8 @@ namespace Echec_et_Math
         public bool colonnelibre(int colonne)
         {
             for (int i = 0; i < largeur; i++)
-            {
-                nbComp++;
-
                 if (echiquier[i] == colonne)
                     return false;
-            }
             return true;
         }
 
@@ -142,8 +135,7 @@ namespace Echec_et_Math
         {
             int pos = ligne + colonne;
 
-            nbComp++;
-            if (diagDroiteGauche[pos] == 0)
+                       if (diagDroiteGauche[pos] == 0)
             {
                 return true;
             }
@@ -155,8 +147,7 @@ namespace Echec_et_Math
         {
             int pos = ligne - colonne + largeur - 1;
 
-            nbComp++;
-            if (diagGaucheDroite[pos] == 0)
+                      if (diagGaucheDroite[pos] == 0)
             {
                 return true;
             }

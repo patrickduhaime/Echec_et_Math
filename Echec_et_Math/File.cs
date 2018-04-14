@@ -17,6 +17,11 @@ namespace Echec_et_Math
             liste = new ListeChainee();
         }
 
+        public int count()
+        {
+            return nbItem;
+        }
+
         public bool estVide()
         {
             return nbItem == 0;

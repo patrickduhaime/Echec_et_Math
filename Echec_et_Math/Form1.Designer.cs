@@ -30,6 +30,7 @@
         {
             this.txtChessBoardSize = new System.Windows.Forms.TextBox();
             this.panelControl = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.buttonChessBoardGen = new System.Windows.Forms.Button();
             this.labelChessBoardSize = new System.Windows.Forms.Label();
             this.labelControl = new System.Windows.Forms.Label();
@@ -37,8 +38,14 @@
             this.labelCounter = new System.Windows.Forms.Label();
             this.comboBoxSolutions = new System.Windows.Forms.ComboBox();
             this.labelSolution = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelNTuples = new System.Windows.Forms.Label();
+            this.labelNTuplesCourant = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelSolTrouvees = new System.Windows.Forms.Label();
             this.panelControl.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtChessBoardSize
@@ -59,6 +66,18 @@
             this.panelControl.Name = "panelControl";
             this.panelControl.Size = new System.Drawing.Size(188, 118);
             this.panelControl.TabIndex = 1;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(27, 40);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(159, 17);
+            this.checkBox1.TabIndex = 3;
+            this.checkBox1.Text = "Arrêter à la première solution";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // buttonChessBoardGen
             // 
@@ -91,6 +110,12 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.labelSolTrouvees);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.labelNTuplesCourant);
+            this.panel1.Controls.Add(this.labelNTuples);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(420, 173);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(188, 156);
@@ -123,17 +148,58 @@
             this.labelSolution.TabIndex = 6;
             this.labelSolution.Text = "Solution";
             // 
-            // checkBox1
+            // label1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(27, 40);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(159, 17);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "Arrêter à la première solution";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 4);
+            this.label1.MaximumSize = new System.Drawing.Size(180, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 26);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "N-Tuples visités pour la solution courante:";
+            // 
+            // labelNTuples
+            // 
+            this.labelNTuples.AutoSize = true;
+            this.labelNTuples.Location = new System.Drawing.Point(162, 72);
+            this.labelNTuples.Name = "labelNTuples";
+            this.labelNTuples.Size = new System.Drawing.Size(0, 13);
+            this.labelNTuples.TabIndex = 1;
+            // 
+            // labelNTuplesCourant
+            // 
+            this.labelNTuplesCourant.AutoSize = true;
+            this.labelNTuplesCourant.Location = new System.Drawing.Point(164, 17);
+            this.labelNTuplesCourant.Name = "labelNTuplesCourant";
+            this.labelNTuplesCourant.Size = new System.Drawing.Size(0, 13);
+            this.labelNTuplesCourant.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 59);
+            this.label2.MaximumSize = new System.Drawing.Size(180, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(157, 26);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "N-Tuples visités pour toutes les solutions :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 113);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(127, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Nb de solutions trouvées:";
+            // 
+            // labelSolTrouvees
+            // 
+            this.labelSolTrouvees.AutoSize = true;
+            this.labelSolTrouvees.Location = new System.Drawing.Point(165, 113);
+            this.labelSolTrouvees.Name = "labelSolTrouvees";
+            this.labelSolTrouvees.Size = new System.Drawing.Size(0, 13);
+            this.labelSolTrouvees.TabIndex = 5;
             // 
             // Form1
             // 
@@ -150,6 +216,8 @@
             this.Text = "Echec et Math";
             this.panelControl.ResumeLayout(false);
             this.panelControl.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,6 +235,12 @@
         private System.Windows.Forms.ComboBox comboBoxSolutions;
         private System.Windows.Forms.Label labelSolution;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label labelNTuples;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelNTuplesCourant;
+        private System.Windows.Forms.Label labelSolTrouvees;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }
 

@@ -17,3 +17,4 @@ S:\cours\inf1008\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.csproj.Gene
 S:\cours\inf1008\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.csproj.CoreCompileInputs.cache
 S:\cours\inf1008\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.exe
 S:\cours\inf1008\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.pdb
+S:\cours\inf1008\Echec_et_Math\Echec_et_Math\obj\Debug\Echec_et_Math.csprojResolveAssemblyReference.cache
