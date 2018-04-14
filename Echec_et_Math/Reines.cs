@@ -47,10 +47,27 @@ namespace Echec_et_Math
             return largeur * largeur;
         }
 
+        public int getIttr()
+        {
+            return nbIttr;
+        }
+
+        public int getAff()
+        {
+            return nbAff;
+        }
+
+        public int getComp()
+        {
+            return nbComp;
+        }
+
         public void reset()
         {
             trouves = 0;
+
             nbIttr = nbAff = nbComp = 0;
+
             echiquier = new int[largeur];
             for (int i = 0; i < largeur; i++)
                 echiquier[i] = -1;
