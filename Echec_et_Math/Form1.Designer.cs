@@ -37,6 +37,7 @@
             this.labelCounter = new System.Windows.Forms.Label();
             this.comboBoxSolutions = new System.Windows.Forms.ComboBox();
             this.labelSolution = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panelControl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +51,7 @@
             // panelControl
             // 
             this.panelControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelControl.Controls.Add(this.checkBox1);
             this.panelControl.Controls.Add(this.buttonChessBoardGen);
             this.panelControl.Controls.Add(this.labelChessBoardSize);
             this.panelControl.Controls.Add(this.txtChessBoardSize);
@@ -121,6 +123,18 @@
             this.labelSolution.TabIndex = 6;
             this.labelSolution.Text = "Solution";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(27, 40);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(159, 17);
+            this.checkBox1.TabIndex = 3;
+            this.checkBox1.Text = "Arrêter à la première solution";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,6 +166,7 @@
         private System.Windows.Forms.Label labelCounter;
         private System.Windows.Forms.ComboBox comboBoxSolutions;
         private System.Windows.Forms.Label labelSolution;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

@@ -49,7 +49,7 @@ namespace Echec_et_Math
                         }
                     }
                 }
-                Form1.UI.addSolution2comboBoxSolutions(solution);
+                //Form1.UI.addSolution2comboBoxSolutions(solution);
                 return true;
             }
             for (int i = 0; i < chessBoardSize; i++)

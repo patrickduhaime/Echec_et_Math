@@ -14,7 +14,7 @@ namespace Echec_et_Math
     {
         private int nbSolutions = 1;
         int M_size, step;
-        JeuEchec jeu;
+        Reines jeu;
         public static Form1 UI;
         Item lastItem = null;
 
@@ -37,10 +37,18 @@ namespace Echec_et_Math
                 comboBoxSolutions.Items.Clear();
                 nbSolutions = 1;
                 M_size = Int32.Parse(txtChessBoardSize.Text);
-                jeu = new JeuEchec(M_size);
-                step = 400 / M_size;
 
-                if (!jeu.chessBoardSolver(0))
+                if (checkBox1.Checked)
+                    jeu = new Reines(M_size); //à partir de 30 le temps d'exécution explose pour une solution
+                                              //à partir de 20/21 pour 10000 solutions
+                                              //peut varier selon la machine
+                else
+                    jeu = new Reines(M_size, 10000);//max 10000 solutions 
+                                                    //(à partir de 12 on arrête avant la fin..) 
+                step = 400 / M_size; //taille des cases
+                
+                //si il n'y a pas de solution
+                if (!jeu.branche(0) && !jeu.hasSolutions())
                 {
                     using (Graphics g = this.CreateGraphics())
                     {
@@ -51,8 +59,9 @@ namespace Echec_et_Math
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                else
-                {
+                else //une ou plusieurs solutions
+                {   //remplir le combobox
+                    addSolution2comboBoxSolutions();
                     using (Graphics g = this.CreateGraphics())
                     {
                         g.Clear(SystemColors.Control); //Clear the draw area
@@ -68,7 +77,7 @@ namespace Echec_et_Math
                                         g.FillRectangle(blackBrush, i * step, j * step, step, step);
                                     else if ((j % 2 == 0 && i % 2 != 0) || (j % 2 != 0 && i % 2 == 0))
                                         g.FillRectangle(whiteBrush, i * step, j * step, step, step);
-                                    
+
                                 }
                             }
                         }
@@ -141,12 +150,12 @@ namespace Echec_et_Math
 
             lastItem = itm;
         }
-    
 
-        public void addSolution2comboBoxSolutions(int[] solution)
+
+        public void addSolution2comboBoxSolutions()
         {
-            comboBoxSolutions.Items.Add(new Item("solution " + nbSolutions,  solution));
-            nbSolutions++;
+            while (jeu.hasSolutions())
+                comboBoxSolutions.Items.Add(jeu.getNextSolution());
         }
     }
 }
